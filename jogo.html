@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jogo da Abelha</title>
+  
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* Ajustes específicos para a página do jogo não quebrar o layout */
+    body {
+        /* Removemos o display flex do body global do jogo para não conflitar com o sidebar */
+        display: block; 
+        overflow-y: auto; /* Permite scroll se necessário */
+    }
+    
+    #main {
+        /* Centraliza o conteúdo do jogo dentro da área principal */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding-top: 20px;
+    }
+
+    /* Ajuste do botão de menu para ficar visível no fundo do jogo */
+    .openbtn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Voltar ao Início</a>
+    <hr style="border: 0; border-top: 1px solid #333; margin: 10px 20px;">
+    <a href="index.html#dados-pessoais">Dados Pessoais</a>
+    <a href="index.html#formacao">Formação</a>
+    <a href="index.html#conhecimentos">Conhecimentos</a>
+    <a href="index.html#portfolio">Portfólio</a>
+  </div>
+
+  <div id="main">
+    <button class="openbtn" onclick="openNav()">&#9776; Menu</button>
+
+    <div class="wrap">
+      <h1>Jogo da Abelha</h1>
+      <div id="menu">
+        <canvas id="menuCanvas" width="720" height="480"></canvas>
+        <button id="btnStart">Iniciar</button>
+      </div>
+      <canvas id="gameCanvas" width="720" height="480" style="display:none"></canvas>
+      <div class="controls">Controles:  ← / → ou A / D para mover</div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/game.js"></script>
+
+</body>
+</html>
